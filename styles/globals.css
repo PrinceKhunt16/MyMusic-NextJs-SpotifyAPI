@@ -9,22 +9,23 @@
 :root {
     overflow: scroll;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
-    width: 14px;
+    width: 0px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #53bd9520;
+    background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #53bd9530;
+    background: #8a918e30;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #53bd9540;
+    background: #a2aba840;
 }
 
 ::selection {
