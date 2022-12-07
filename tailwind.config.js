@@ -6,7 +6,14 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        noto: ['Noto Sans Limbu', 'sans-serif'],
+        sans: ['Roboto'],
+        caveatbrush: 'Caveat Brush',
+        caveat: 'Caveat'
+      }
+    },
   },
   plugins: [],
 }
