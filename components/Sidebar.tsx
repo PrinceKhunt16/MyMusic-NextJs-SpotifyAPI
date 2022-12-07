@@ -1,9 +1,14 @@
-import { signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 
 export default function Sidebar() {
+  const { data: session } = useSession()
+  
   return (
-    <div className="text-gray-400 w-60 font-caveat text-[22px] tracking-wide py-5 border-r border-gray-900 space-y-2 h-screen overflow-y-scroll">
-      <button className="flex items-center gap-2 hover:text-gray-400 px-5">
+    <div className="text-gray-400 min-w-[240px] w-fit font-caveat text-[22px] tracking-wide py-5 border-r border-gray-900 space-y-[8px] h-screen overflow-y-scroll">
+      <div className="flex items-center gap-2 hover:text-gray-300 px-5">
+        Welcome {session?.user.name.split(' ')[0]}
+      </div>
+      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -20,7 +25,7 @@ export default function Sidebar() {
         </svg>
         <p>Home</p>
       </button>
-      <button className="flex items-center gap-2 hover:text-gray-400 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -37,7 +42,7 @@ export default function Sidebar() {
         </svg>
         <p>Search</p>
       </button>
-      <button className="flex items-center gap-2 hover:text-gray-400 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -55,7 +60,7 @@ export default function Sidebar() {
         <p>Your Library</p>
       </button>
       <hr className="border-t-[0.1px] border-gray-900" />
-      <button className="flex items-center gap-2 hover:text-gray-400 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -72,7 +77,7 @@ export default function Sidebar() {
         </svg>
         <p>Create Playlist</p>
       </button>
-      <button className="flex items-center gap-2 hover:text-gray-400 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -89,7 +94,7 @@ export default function Sidebar() {
         </svg>
         <p>Songs</p>
       </button>
-      <button className="flex items-center gap-2 hover:text-gray-400 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -107,7 +112,7 @@ export default function Sidebar() {
         <p>Your Episodes</p>
       </button>
       <button 
-        className="flex items-center gap-2 hover:text-gray-400 px-5"
+        className="flex items-center gap-2 hover:text-gray-300 px-5"
         onClick={() => signOut()}
       >
         <svg
@@ -127,50 +132,50 @@ export default function Sidebar() {
         <p>Log out</p>
       </button>
       <hr className="border-t-[0.1px] border-gray-900" />
-      <p className="cursor-pointer hover:text-gray-400 px-5">Airplane Mode</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Astral traveling</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Driving vocals</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Nostalgic Journeys</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Music that Heals</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Every Shade of Blue</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">All Time Low Playlist</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">No more of you</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Making onions cry</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Lonely daydreams</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Crying favorites</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Airplane Mode</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Astral traveling</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Driving vocals</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Nostalgic Journeys</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Music that Heals</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Every Shade of Blue</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">All Time Low Playlist</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">No more of you</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Making onions cry</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Lonely daydreams</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Crying favorites</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Airplane Mode</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Astral traveling</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Driving vocals</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Nostalgic Journeys</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Music that Heals</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Every Shade of Blue</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">All Time Low Playlist</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">No more of you</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Making onions cry</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Lonely daydreams</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Crying favorites</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Airplane Mode</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Astral traveling</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Driving vocals</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Nostalgic Journeys</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Music that Heals</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Every Shade of Blue</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">All Time Low Playlist</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">No more of you</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Making onions cry</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Lonely daydreams</p>
-      <p className="cursor-pointer hover:text-gray-400 px-5">Crying favorites</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Airplane Mode</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Astral traveling</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Driving vocals</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Nostalgic Journeys</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Music that Heals</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Every Shade of Blue</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">All Time Low Playlist</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">No more of you</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Making onions cry</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Lonely daydreams</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Crying favorites</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Airplane Mode</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Astral traveling</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Driving vocals</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Nostalgic Journeys</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Music that Heals</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Every Shade of Blue</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">All Time Low Playlist</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">No more of you</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Making onions cry</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Lonely daydreams</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Crying favorites</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Airplane Mode</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Astral traveling</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Driving vocals</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Nostalgic Journeys</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Music that Heals</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Every Shade of Blue</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">All Time Low Playlist</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">No more of you</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Making onions cry</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Lonely daydreams</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Crying favorites</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Airplane Mode</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Astral traveling</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Driving vocals</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Nostalgic Journeys</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Music that Heals</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Every Shade of Blue</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">All Time Low Playlist</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">No more of you</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Making onions cry</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Lonely daydreams</p>
+      <p className="cursor-pointer hover:text-gray-300 px-5">Crying favorites</p>
     </div>
   );
 }
