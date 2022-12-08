@@ -1,8 +1,27 @@
 import { signOut, useSession } from "next-auth/react"
+import { useEffect, useState } from "react";
+import UseSpotify from "./UseSpotify";
+import { useRecoilState } from "recoil"
+import { playlistIdState } from "../atoms/playlistAtom";
 
 export default function Sidebar() {
+  const spotifyApi = UseSpotify()
   const { data: session } = useSession()
-  
+  const [playlists, setPlaylists] = useState([])
+  const [playlistId, setPlaylistId] = useRecoilState(playlistIdState)
+
+  useEffect(() => {
+    if(spotifyApi.getAccessToken()){
+      spotifyApi.getUserPlaylists()
+        .then((data) => {
+          setPlaylists(data.body.items)
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    } 
+  }, [session, spotifyApi])
+
   return (
     <div className="text-gray-400 min-w-[240px] w-fit font-caveat text-[22px] tracking-wide py-5 border-r border-gray-900 space-y-[8px] h-screen overflow-y-scroll">
       <div className="flex items-center gap-2 hover:text-gray-300 px-5">
@@ -132,50 +151,10 @@ export default function Sidebar() {
         <p>Log out</p>
       </button>
       <hr className="border-t-[0.1px] border-gray-900" />
-      <p className="cursor-pointer hover:text-gray-300 px-5">Airplane Mode</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Astral traveling</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Driving vocals</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Nostalgic Journeys</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Music that Heals</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Every Shade of Blue</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">All Time Low Playlist</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">No more of you</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Making onions cry</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Lonely daydreams</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Crying favorites</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Airplane Mode</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Astral traveling</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Driving vocals</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Nostalgic Journeys</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Music that Heals</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Every Shade of Blue</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">All Time Low Playlist</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">No more of you</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Making onions cry</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Lonely daydreams</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Crying favorites</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Airplane Mode</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Astral traveling</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Driving vocals</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Nostalgic Journeys</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Music that Heals</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Every Shade of Blue</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">All Time Low Playlist</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">No more of you</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Making onions cry</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Lonely daydreams</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Crying favorites</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Airplane Mode</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Astral traveling</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Driving vocals</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Nostalgic Journeys</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Music that Heals</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Every Shade of Blue</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">All Time Low Playlist</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">No more of you</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Making onions cry</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Lonely daydreams</p>
-      <p className="cursor-pointer hover:text-gray-300 px-5">Crying favorites</p>
+      {playlists.map((playlist) => (
+        <p onClick={() => setPlaylistId(playlist.id)} className="cursor-pointer hover:text-gray-300 px-5">{playlist.name}</p>
+      ))        
+      }
     </div>
   );
 }

@@ -17,16 +17,16 @@ const scopes = [
 ].join(",")
 
 const params = {
-  scopes: scopes,
-}
+  scope: scopes,
+} 
 
 const queryParamString = new URLSearchParams(params)
 
 const spotifyApi = new SpotifyWebApi({
- clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
- clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
+  clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
+  clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
 })
 
-export const LOGIN_URL = `https://accounts.spotify.com/authorize?${queryParamString.toString()}`
+export const LOGIN_URL = "https://accounts.spotify.com/authorize?" + queryParamString.toString()
 
 export default spotifyApi

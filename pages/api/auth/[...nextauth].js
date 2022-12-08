@@ -16,12 +16,10 @@ export async function refreshAccessToken(token){
       refreshToken: refreshedToken ?? token.refreshToken,
     }
 
-  } catch (e) {
-    console.log(e)
-    
+  } catch (e) {    
     return {
       ...token,
-      error: 'RefreshAccessToken'
+      error: 'RefreshAccessTokenError'
     }
   }
 }
