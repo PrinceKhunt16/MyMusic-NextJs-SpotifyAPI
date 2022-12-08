@@ -23,11 +23,12 @@ export default function Sidebar() {
   }, [session, spotifyApi])
 
   return (
-    <div className="text-gray-400 min-w-[240px] w-fit font-caveat text-[22px] tracking-wide py-5 border-r border-gray-900 space-y-[8px] h-screen overflow-y-scroll">
-      <div className="flex items-center gap-2 hover:text-gray-300 px-5">
+    // <div className="text-neutral-400 min-w-[180px] md:min-w-[240px] w-fit font-caveat text-[19px] md:text-[22px] tracking-wide py-2 md:py-5 border-r border-gray-900 space-y-[8px] h-screen overflow-y-scroll">
+    <div className="text-neutral-400 min-w-[180px] md:min-w-[240px] w-fit font-sans text-[14px] md:text-[16px] tracking-wide py-2 md:py-5 border-r border-gray-900 space-y-[10px] h-screen overflow-y-scroll">
+      <div className="flex items-center gap-2 hover:text-gray-300 px-2 md:px-5">
         Welcome {session?.user.name.split(' ')[0]}
       </div>
-      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-2 md:px-5 tracking-wide">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -44,7 +45,7 @@ export default function Sidebar() {
         </svg>
         <p>Home</p>
       </button>
-      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-2 md:px-5 tracking-wide">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -61,7 +62,7 @@ export default function Sidebar() {
         </svg>
         <p>Search</p>
       </button>
-      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-2 md:px-5 tracking-wide">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -79,7 +80,7 @@ export default function Sidebar() {
         <p>Your Library</p>
       </button>
       <hr className="border-t-[0.1px] border-gray-900" />
-      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-2 md:px-5 tracking-wide">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -96,7 +97,7 @@ export default function Sidebar() {
         </svg>
         <p>Create Playlist</p>
       </button>
-      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-2 md:px-5 tracking-wide">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -113,7 +114,7 @@ export default function Sidebar() {
         </svg>
         <p>Songs</p>
       </button>
-      <button className="flex items-center gap-2 hover:text-gray-300 px-5">
+      <button className="flex items-center gap-2 hover:text-gray-300 px-2 md:px-5 tracking-wide">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -131,7 +132,7 @@ export default function Sidebar() {
         <p>Your Episodes</p>
       </button>
       <button 
-        className="flex items-center gap-2 hover:text-gray-300 px-5"
+        className="flex items-center gap-2 hover:text-gray-300 px-2 md:px-5 tracking-wide"
         onClick={() => signOut()}
       >
         <svg
@@ -152,7 +153,7 @@ export default function Sidebar() {
       </button>
       <hr className="border-t-[0.1px] border-gray-900" />
       {playlists.map((playlist) => (
-        <p onClick={() => setPlaylistId(playlist.id)} className="cursor-pointer hover:text-gray-300 px-5">{playlist.name}</p>
+        <p onClick={() => setPlaylistId(playlist.id)} className="cursor-pointer hover:text-gray-300 px-2 md:px-5">{playlist.name}</p>
       ))        
       }
     </div>

@@ -3,9 +3,9 @@ import { playlistState, playlistIdState } from "../atoms/playlistAtom";
 import { useRecoilValue, useRecoilState } from "recoil"
 import { useSession } from "next-auth/react";
 import UseSpotify from "./UseSpotify";
+import Songs from "./Songs";
 
 const colors = [
-  'from-zinc-500',
   'from-indigo-500',
   'from-blue-500',
   'from-green-500',
@@ -23,7 +23,6 @@ const colors = [
   'from-sky-500',  
   'from-lime-500',
   'from-violet-500',               
-  'from-neutral-500',              
 ]                                          
 
 export default function Center() {
@@ -34,8 +33,10 @@ export default function Center() {
   const [playlist, setPlaylist] = useRecoilState(playlistState)
 
   useEffect(() => {
-    setColor(colors[Math.floor(Math.random() * 19)])
-  }, [playlist]) 
+    setTimeout(() => {
+      setColor(colors[Math.floor(Math.random() * 17)])
+    }, 300)
+  }, [playlistId]) 
 
   useEffect(() => {
     if(spotifyApi.getAccessToken()){
@@ -45,15 +46,21 @@ export default function Center() {
         }) 
         .catch((e) => {
           console.log(e)
-        })
+        }) 
     } 
   }, [session, playlistId])
 
   return (
-    <div className="flex flex-col flex-grow relative w-full">
-      <section className={`w-full bg-gradient-to-b transition-all to-black ${color} h-80 text-gray-400`}>
-        <div className="mt-40 ml-20">
-          <img className="h-44 w-44 shadow-2xl" src={playlist?.images?.[0]?.url} alt="" />
+    <div className="h-screen overflow-y-scroll flex flex-col flex-grow relative w-full">
+      <section className={`pl-10 w-full bg-gradient-to-b transition-all to-black ${color} h-80 text-neutral-400`}>
+        <div className="mt-10 md:mt-40 flex flex-col md:flex-row items-start md:items-end gap-6 md:gap-10">
+          <img className="h-44 w-44 shadow-sm" src={playlist?.images?.[0]?.url} alt="" />
+          <div className="font-caveat">
+            <h1 className="text-4xl md:text-5xl xl:text-7xl font-bold">{playlist?.name}</h1>
+          </div>
+        </div>
+        <div className="mr-10 mt-8">
+          <Songs />
         </div>
       </section>
     </div> 
