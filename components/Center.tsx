@@ -55,8 +55,8 @@ export default function Center() {
       <section className={`pl-10 w-full bg-gradient-to-b transition-all to-black ${color} h-80 text-neutral-400`}>
         <div className="mt-10 md:mt-40 flex flex-col md:flex-row items-start md:items-end gap-6 md:gap-10">
           <img className="h-44 w-44 shadow-sm" src={playlist?.images?.[0]?.url} alt="" />
-          <div className="font-caveat">
-            <h1 className="text-4xl md:text-5xl xl:text-7xl font-bold">{playlist?.name}</h1>
+          <div className="font-noto">
+            <h1 className="text-2xl md:text-4xl xl:text-6xl font-bold">{playlist?.name}</h1>
           </div>
         </div>
         <div className="mr-10 mt-8">
